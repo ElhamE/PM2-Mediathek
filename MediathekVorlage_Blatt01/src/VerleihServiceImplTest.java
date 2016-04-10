@@ -1,4 +1,5 @@
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
@@ -66,13 +67,13 @@ public class VerleihServiceImplTest
 		assertTrue(_verleihService.sindAlleVerliehen(ausgewaehlteMedien));
 		
 //		zusaetzlich...
-//		for (Medium medium: ausgewaehlteMedien)
-//		{
-//			Verleihkarte karte = _verleihService.getVerleihkarteFuer(medium);
-//			assertEquals(Datum.get(1, 1, 2016), karte.getAusleihdatum());
-//			assertEquals(_homer, karte.getEntleiher());
-//			assertEquals(medium, karte.getMedium());
-//		}
+		for (Medium medium: ausgewaehlteMedien)
+		{
+			Verleihkarte karte = _verleihService.getVerleihkarteFuer(medium);
+			assertEquals(Datum.get(1, 1, 2016), karte.getAusleihdatum());
+			assertEquals(_homer, karte.getEntleiher());
+			assertEquals(medium, karte.getMedium());
+		}
 	}
 
 	@Test
