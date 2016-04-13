@@ -70,6 +70,7 @@ public class VerleihServiceImplTest
 	@Test
 	public void testMediumWirdZurueckGegeben()
 	{
+		//....
 		_verleihService.verleiheAn(_roger, _medienbestand.getMedien(), Datum.heute());
 		_verleihService.nimmZurueck(_verleihService.getAusgelieheneMedienFuer(_roger), Datum.heute());
 		assertTrue(_verleihService.sindAlleNichtVerliehen(_verleihService.getAusgelieheneMedienFuer(_roger)));	
