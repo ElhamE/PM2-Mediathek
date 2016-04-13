@@ -65,15 +65,6 @@ public class VerleihServiceImplTest
 		List<Medium> ausgewaehlteMedien = _medienbestand.getMedien();
 		_verleihService.verleiheAn(_homer, ausgewaehlteMedien, Datum.get(1, 1, 2016));
 		assertTrue(_verleihService.sindAlleVerliehen(ausgewaehlteMedien));
-		
-//		zusaetzlich...
-		for (Medium medium: ausgewaehlteMedien)
-		{
-			Verleihkarte karte = _verleihService.getVerleihkarteFuer(medium);
-			assertEquals(Datum.get(1, 1, 2016), karte.getAusleihdatum());
-			assertEquals(_homer, karte.getEntleiher());
-			assertEquals(medium, karte.getMedium());
-		}
 	}
 
 	@Test
