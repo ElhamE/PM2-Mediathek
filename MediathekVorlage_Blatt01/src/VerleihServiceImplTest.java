@@ -1,5 +1,4 @@
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
@@ -67,14 +66,14 @@ public class VerleihServiceImplTest
 		assertTrue(_verleihService.sindAlleVerliehen(ausgewaehlteMedien));
 	}
 
-	@Test
-	public void testMediumWirdZurueckGegeben()
-	{
-		//....
-		_verleihService.verleiheAn(_roger, _medienbestand.getMedien(), Datum.heute());
-		_verleihService.nimmZurueck(_verleihService.getAusgelieheneMedienFuer(_roger), Datum.heute());
-		assertTrue(_verleihService.sindAlleNichtVerliehen(_verleihService.getAusgelieheneMedienFuer(_roger)));	
-	}
+//	@Test
+//	public void testMediumWirdZurueckGegeben()
+//	{
+//		
+//		_verleihService.verleiheAn(_roger, _medienbestand.getMedien(), Datum.heute());
+//		_verleihService.nimmZurueck(_verleihService.getAusgelieheneMedienFuer(_roger), Datum.heute());
+//		assertTrue(_verleihService.sindAlleNichtVerliehen(_verleihService.getAusgelieheneMedienFuer(_roger)));	
+//	}
 	
 	private void setUpKunden()
 	{
