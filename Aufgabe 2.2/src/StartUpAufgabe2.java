@@ -4,7 +4,6 @@ import java.util.LinkedList;
 
 class StartUpAufgabe2
 {
-
 	public static void main(String[] args)
 	{
 		CollectionExperiment colEx = new CollectionExperiment();
