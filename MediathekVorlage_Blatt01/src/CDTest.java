@@ -1,6 +1,7 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
@@ -36,6 +37,12 @@ public class CDTest
         assertEquals(INTERPRET, _cd1.getInterpret());
     }
 
+    @Test
+    public void testGetFormatiertenString()
+    {
+    	assertNotNull(_cd1.getFormatiertenString());
+    }
+    
     @Test
     /*
      * Von ein und der selben CD kann es mehrere Exemplare geben, die von

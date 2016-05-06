@@ -1,7 +1,7 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
+import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 public class DVDTest
@@ -34,6 +34,12 @@ public class DVDTest
         assertEquals(KOMMENTAR, _dvd1.getKommentar());
         assertEquals(LAENGE, _dvd1.getLaufzeit());
         assertEquals(REGISSEUR, _dvd1.getRegisseur());
+    }
+    
+    @Test
+    public void testGetFormatiertenString()
+    {
+    	assertNotNull(_dvd1.getFormatiertenString());
     }
 
     @Test

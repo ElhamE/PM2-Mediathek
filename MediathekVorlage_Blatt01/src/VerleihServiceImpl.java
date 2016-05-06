@@ -66,18 +66,23 @@ class VerleihServiceImpl extends AbstractObservableService implements VerleihSer
 	@Override
 	public boolean istVerliehen(Medium medium)
 	{
+		assert mediumImBestand(medium) : "Vorbedingung verletzt: mediumImBestand(medium)";
 		return _verleihkarten.get(medium) != null;
 	}
 
 	@Override
 	public boolean istVerleihenMoeglich(Kunde kunde, List<Medium> medien)
 	{
+		assert kundeImBestand(kunde) : "Vorbedingung verletzt: kundeImBestand(kunde)";
+		assert medienImBestand(medien) : "Vorbedingung verletzt: medienImBestand(medien)";
 		return sindAlleNichtVerliehen(medien);
 	}
 
 	@Override
 	public void nimmZurueck(List<Medium> medien, Datum rueckgabeDatum)
 	{
+		assert sindAlleVerliehen(medien) : "Vorbedingung verletzt: sindAlleVerliehen(medien)";
+		assert rueckgabeDatum != null : "Vorbedingung verletzt: rueckgabeDatum != null";
 		for (Medium medium : medien)
 		{
 			_verleihkarten.remove(medium);
@@ -88,6 +93,7 @@ class VerleihServiceImpl extends AbstractObservableService implements VerleihSer
 	@Override
 	public boolean sindAlleNichtVerliehen(List<Medium> medien)
 	{
+		assert medienImBestand(medien) : "Vorbedingung verletzt: medienImBestand(medien)";
 		boolean result = true;
 		for (Medium medium : medien)
 		{
@@ -102,6 +108,7 @@ class VerleihServiceImpl extends AbstractObservableService implements VerleihSer
 	@Override
 	public boolean sindAlleVerliehen(List<Medium> medien)
 	{
+		assert medienImBestand(medien) : "Vorbedingung verletzt: medienImBestand(medien)";
 		boolean result = true;
 		for (Medium medium : medien)
 		{
@@ -116,6 +123,9 @@ class VerleihServiceImpl extends AbstractObservableService implements VerleihSer
 	@Override
 	public void verleiheAn(Kunde kunde, List<Medium> medien, Datum ausleihDatum)
 	{
+		assert kundeImBestand(kunde) : "Vorbedingung verletzt: kundeImBestand(kunde)";
+		assert sindAlleNichtVerliehen(medien) : "Vorbedingung verletzt: sindAlleNichtVerliehen(medien)";
+		assert ausleihDatum != null : "Vorbedingung verletzt: ausleihDatum != null";
 		for (Medium medium : medien)
 		{
 			Verleihkarte karte = new Verleihkarte(kunde, medium, ausleihDatum);
@@ -128,18 +138,22 @@ class VerleihServiceImpl extends AbstractObservableService implements VerleihSer
 	@Override
 	public boolean kundeImBestand(Kunde kunde)
 	{
+		assert kunde != null : "Vorbedingung verletzt: kunde != null";
 		return _kundenstamm.enthaeltKunden(kunde);
 	}
 
 	@Override
 	public boolean mediumImBestand(Medium medium)
 	{
+		assert medium != null : "Vorbedingung verletzt: medium != null";
 		return _medienbestand.enthaeltMedium(medium);
 	}
 
 	@Override
 	public boolean medienImBestand(List<Medium> medien)
 	{
+		assert medien != null : "Vorbedingung verletzt: medien != null";
+		assert !medien.isEmpty() : "Vorbedingung verletzt: !medien.isEmpty()";
 		boolean result = true;
 		for (Medium medium : medien)
 		{
@@ -155,6 +169,7 @@ class VerleihServiceImpl extends AbstractObservableService implements VerleihSer
 	@Override
 	public List<Medium> getAusgelieheneMedienFuer(Kunde kunde)
 	{
+		assert kundeImBestand(kunde) : "Vorbedingung verletzt: kundeImBestand(kunde)";
 		List<Medium> result = new ArrayList<Medium>();
 		for (Verleihkarte verleihkarte : _verleihkarten.values())
 		{
@@ -169,6 +184,7 @@ class VerleihServiceImpl extends AbstractObservableService implements VerleihSer
 	@Override
 	public Kunde getEntleiherFuer(Medium medium)
 	{
+		assert istVerliehen(medium) : "Vorbedingung verletzt: istVerliehen(medium)";
 		Verleihkarte verleihkarte = _verleihkarten.get(medium);
 		return verleihkarte.getEntleiher();
 	}
@@ -176,12 +192,14 @@ class VerleihServiceImpl extends AbstractObservableService implements VerleihSer
 	@Override
 	public Verleihkarte getVerleihkarteFuer(Medium medium)
 	{
+		assert istVerliehen(medium) : "Vorbedingung verletzt: istVerliehen(medium)";
 		return _verleihkarten.get(medium);
 	}
 
 	@Override
 	public List<Verleihkarte> getVerleihkartenFuer(Kunde kunde)
 	{
+		assert kundeImBestand(kunde) : "Vorbedingung verletzt: kundeImBestand(kunde)";
 		List<Verleihkarte> result = new ArrayList<Verleihkarte>();
 		for (Verleihkarte verleihkarte : _verleihkarten.values())
 		{

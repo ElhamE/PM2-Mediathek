@@ -102,5 +102,12 @@ class DVD implements Medium
     {
         return _titel;
     }
+    
+    @Override
+    public String getFormatiertenString()
+    {
+        return " Titel: " + _titel + "\n Bezeichnung: DVD \n Regisseur: " + _regisseur +
+        	   "\n Laufzeit: " + _laufzeit + " Minuten";
+    }
 
 }
