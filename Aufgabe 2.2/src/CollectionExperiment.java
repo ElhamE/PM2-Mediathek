@@ -17,7 +17,6 @@ class CollectionExperiment
 		collection.add("Imon");
 		collection.add("Elham");
 		collection.add("Imon");
-		collection.add("Ende");
 		schreibeCollectionAufConsole(collection);
 		
 		collection.remove("Imon");
