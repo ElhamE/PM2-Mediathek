@@ -27,8 +27,6 @@ class CollectionExperiment
 		schreibeCollectionAufConsole(collection);
 		
 		System.out.print(collection.size() + " | ");
-		
-		collection.addAll(collection);
 	
 		collection.clear();
 		schreibeCollectionAufConsole(collection);
