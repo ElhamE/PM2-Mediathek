@@ -41,14 +41,14 @@ public class VideospielTest
 	
 	@Test
 	/*
-	 * Von ein und der selben CD kann es mehrere Exemplare geben, die von
+	 * Von ein und dem selben Videospiel kann es mehrere Exemplare geben, die von
 	 * unterschiedlichen Personen ausgeliehen werden können.
 	 */
 	public void testEquals()
 	{
-		assertFalse("Mehrere Exemplare der gleichen CD sind ungleich",
+		assertFalse("Mehrere Exemplare des gleichen Videospiels sind ungleich",
 				_vid1.equals(_vid2));
-		assertTrue("Dasselbe Exemplare der gleichen CD ist gleich",
+		assertTrue("Dasselbe Exemplare des gleichen Videospiels ist gleich",
 				_vid1.equals(_vid1));
 	}
 

@@ -45,6 +45,7 @@ interface MedienbestandService extends ObservableService
      * 
      * @param neuesMedium Ein neues Medium
      * @require neuesMedium != null
+     * @require !enthaeltMedium(medium)
      * @ensure enthaeltMedium(medium)
      */
     void fuegeMediumEin(Medium neuesMedium);

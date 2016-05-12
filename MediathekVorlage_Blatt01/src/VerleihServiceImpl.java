@@ -75,6 +75,7 @@ class VerleihServiceImpl extends AbstractObservableService implements VerleihSer
 	{
 		assert kundeImBestand(kunde) : "Vorbedingung verletzt: kundeImBestand(kunde)";
 		assert medienImBestand(medien) : "Vorbedingung verletzt: medienImBestand(medien)";
+		
 		return sindAlleNichtVerliehen(medien);
 	}
 

@@ -31,38 +31,38 @@ class MedienDetailAnzeigerWerkzeug
 	{
 		assert medien != null : "Vorbedingung verletzt: (medien != null)";
 		JTextArea selectedMedienTextArea = _ui.getMedienAnzeigerTextArea();
-//		String text = null;
-//		for (Medium medium : medien)
-//		{
-//			if (medium instanceof CD)
-//			{
-//				CD cd = (CD) medium;
-//				text = " Titel: " + cd.getTitel();
-//				text = text + "\n Bezeichnung: " + cd.getMedienBezeichnung();
-//				text = text + "\n Interpret: " + cd.getInterpret();
-//				text = text + "\n Laenge: " + cd.getSpiellaenge() + " Minuten";
-//			}
-//			if (medium instanceof DVD)
-//			{
-//				DVD dvd = (DVD) medium;
-//				text = " Titel: " + dvd.getTitel();
-//				text = text + "\n Bezeichnung: " + dvd.getMedienBezeichnung();
-//				text = text + "\n Regisseur: " + dvd.getRegisseur();
-//				text = text + "\n Laufzeit: " + dvd.getLaufzeit() + " Minuten";
-//			}
-//			if (medium instanceof Videospiel)
-//			{
-//				Videospiel video = (Videospiel) medium;
-//				text = " Titel: " + video.getTitel();
-//				text = text + "\n Bezeichnung: " + video.getMedienBezeichnung();
-//				text = text + "\n Plattform: " + video.getPlattform();
-//			}
-//			selectedMedienTextArea.setText(text);
-//		}
-		for (Medium medium: medien)
+		String text = null;
+		for (Medium medium : medien)
 		{
-			selectedMedienTextArea.setText(medium.getFormatiertenString());
+			if (medium instanceof CD)
+			{
+				CD cd = (CD) medium;
+				text = " Titel: " + cd.getTitel();
+				text = text + "\n Bezeichnung: " + cd.getMedienBezeichnung();
+				text = text + "\n Interpret: " + cd.getInterpret();
+				text = text + "\n Laenge: " + cd.getSpiellaenge() + " Minuten";
+			}
+			if (medium instanceof DVD)
+			{
+				DVD dvd = (DVD) medium;
+				text = " Titel: " + dvd.getTitel();
+				text = text + "\n Bezeichnung: " + dvd.getMedienBezeichnung();
+				text = text + "\n Regisseur: " + dvd.getRegisseur();
+				text = text + "\n Laufzeit: " + dvd.getLaufzeit() + " Minuten";
+			}
+			if (medium instanceof Videospiel)
+			{
+				Videospiel video = (Videospiel) medium;
+				text = " Titel: " + video.getTitel();
+				text = text + "\n Bezeichnung: " + video.getMedienBezeichnung();
+				text = text + "\n Plattform: " + video.getPlattform();
+			}
+			selectedMedienTextArea.setText(text);
 		}
+//		for (Medium medium: medien)
+//		{
+//			selectedMedienTextArea.setText(medium.getFormatiertenString());
+//		}
 	}
 	
 	/**
