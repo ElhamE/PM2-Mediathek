@@ -1,6 +1,13 @@
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Ein VerleihProtokollierer protokolliert Verleihvorgaenge.
+ * 
+ * @author Imon Bashir, Elham Esmat
+ * @version SoSe 2016
+ */
+
 class VerleihProtokollierer
 {
 
@@ -14,26 +21,23 @@ class VerleihProtokollierer
 	 * @require ereignis != null
 	 * @require verleihkarte != null
 	 */
-	public void protokolliere(String ereignis, Verleihkarte verleihkarte)
+	public void protokolliere(String ereignis, Verleihkarte verleihkarte) throws ProtokollierException
 	{
-		try	
+		try	(FileWriter writer = new FileWriter("C:/Users/Elham/Desktop/protokoll.txt", true)) 
 		{
 			assert ereignis != null : "Vorbedingung verletzt: ereignis != null";
 			assert verleihkarte != null : "Vorbedingung verletzt: verleihkarte != null";
-			FileWriter writer = new FileWriter("protokoll.txt", true);
 			switch (ereignis)
 			{
 				case "Ausleihe": writer.write("Ausleihe von:\n" + verleihkarte.getFormatiertenString());
-								 writer.close();
 								 break;
 				case "Rueckgabe": writer.write("Rueckgabe von:\n" + verleihkarte.getFormatiertenString() + "am "
-												+ verleihkarte.getAusleihdatum() + " zurückgegeben.");
-				                 writer.close();
+												+ Datum.heute() + " zurückgegeben.");
 			}
 		}
 		catch (IOException io)
 		{
-			System.err.println(io);
+			throw new ProtokollierException(io.getMessage());
 		}
 	}
 }
