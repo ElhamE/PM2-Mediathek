@@ -30,4 +30,10 @@ class KonsolenVideospiel extends AbstractVideospiel
         assert mietTage > 0 : "Vorbedingung verletzt: mietTage > 0";
         return (mietTage / 3) * 700;       
     }
+    
+    @Override
+    public String getMedienBezeichnung()
+    {
+        return "KonsolenVideospiel";
+    }
 }

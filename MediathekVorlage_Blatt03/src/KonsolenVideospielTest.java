@@ -1,75 +1,48 @@
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 /**
  */
-public class KonsolenVideospielTest
+public class KonsolenVideospielTest extends AbstractVideospielTest
 {
-    private static final String KOMMENTAR = "Kommentar";
-    private static final String TITEL = "Titel";
-    private static final String BEZEICHNUNG = "Videospiel";
-    private static final String SYSTEM = "System";
-    private KonsolenVideospiel  _konsolenSpiel;
 
     public KonsolenVideospielTest()
     {
-        _konsolenSpiel = getMedium();
-    }
-
-    @Test
-    public void testeKonsolenVideospiel()
-    {
-        assertEquals(TITEL, _konsolenSpiel.getTitel());
-        assertEquals(KOMMENTAR, _konsolenSpiel.getKommentar());
-        assertEquals(SYSTEM, _konsolenSpiel.getSystem());
+        _videospiel = getMedium();
     }
 
     @Test
     public void testGetMedienBezeichnung()
     {
-        assertEquals(BEZEICHNUNG, _konsolenSpiel.getMedienBezeichnung());
+    	assertEquals("KonsolenVideospiel", _videospiel.getMedienBezeichnung());
     }
-
-    protected KonsolenVideospiel getMedium()
+    
+    private KonsolenVideospiel getMedium()
     {
         return new KonsolenVideospiel(TITEL, KOMMENTAR, SYSTEM);
     }
-
+    
     @Test
-    public final void testSetKommentar()
+    public void testBerechneMietgebuehr()
     {
-        KonsolenVideospiel medium = getMedium();
-        medium.setKommentar("Kommentar2");
-        assertEquals(medium.getKommentar(), "Kommentar2");
-    }
-
-    @Test
-    public final void testSetTitel()
-    {
-        KonsolenVideospiel medium = getMedium();
-        medium.setTitel("Titel2");
-        assertEquals(medium.getTitel(), "Titel2");
+        assertEquals(Geldbetrag.get(200), _videospiel.berechneMietgebuehr(1));
+        assertEquals(Geldbetrag.get(200), _videospiel.berechneMietgebuehr(2));
+        assertEquals(Geldbetrag.get(900), _videospiel.berechneMietgebuehr(3));
+        assertEquals(Geldbetrag.get(900), _videospiel.berechneMietgebuehr(5));
+        assertEquals(Geldbetrag.get(1600), _videospiel.berechneMietgebuehr(6));
+        assertEquals(Geldbetrag.get(3000), _videospiel.berechneMietgebuehr(13));
     }
     
     @Test
-    public final void testBerechneMietgebuehr()
+    public void testGetPreisNachTagen()
     {
-        KonsolenVideospiel medium = getMedium();
-        assertEquals(Geldbetrag.get(200), medium.berechneMietgebuehr(1));
-        assertEquals(Geldbetrag.get(200), medium.berechneMietgebuehr(2));
-        assertEquals(Geldbetrag.get(900), medium.berechneMietgebuehr(3));
-        assertEquals(Geldbetrag.get(900), medium.berechneMietgebuehr(5));
-        assertEquals(Geldbetrag.get(1600), medium.berechneMietgebuehr(6));
-        assertEquals(Geldbetrag.get(3000), medium.berechneMietgebuehr(13));
-    }
-    
-    @Test
-    public final void testBerechneMietgebuehrNichtNull()
-    {
-        KonsolenVideospiel medium = getMedium();
-        assertNotNull(medium.berechneMietgebuehr(5));
+        assertEquals(0, _videospiel.getPreisNachTagen(1));
+        assertEquals(0, _videospiel.getPreisNachTagen(2));
+        assertEquals(700, _videospiel.getPreisNachTagen(3));
+        assertEquals(700, _videospiel.getPreisNachTagen(5));
+        assertEquals(1400, _videospiel.getPreisNachTagen(6));
+        assertEquals(2800, _videospiel.getPreisNachTagen(13));
     }
 
 }
