@@ -16,12 +16,7 @@ class KonsolenVideospiel extends AbstractVideospiel
      */
     public KonsolenVideospiel(String titel, String kommentar, String system)
     {
-        assert titel != null : "Vorbedingung verletzt: titel != null";
-        assert kommentar != null : "Vorbedingung verletzt: kommentar != null";
-        assert system != null : "Vorbedingung verletzt: system != null";
-        _titel = titel;
-        _kommentar = kommentar;
-        _system = system;
+    	super(titel, kommentar, system, "KonsolenVideospiel");
     }
     
     @Override
@@ -30,10 +25,5 @@ class KonsolenVideospiel extends AbstractVideospiel
         assert mietTage > 0 : "Vorbedingung verletzt: mietTage > 0";
         return (mietTage / 3) * 700;       
     }
-    
-    @Override
-    public String getMedienBezeichnung()
-    {
-        return "KonsolenVideospiel";
-    }
+
 }

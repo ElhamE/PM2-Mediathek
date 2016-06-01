@@ -16,12 +16,7 @@ class PCVideospiel extends AbstractVideospiel
 	 */
 	public PCVideospiel(String titel, String kommentar, String system)
 	{
-		assert titel != null : "Vorbedingung verletzt: titel != null";
-		assert kommentar != null : "Vorbedingung verletzt: kommentar != null";
-		assert system != null : "Vorbedingung verletzt: system != null";
-		_titel = titel;
-		_kommentar = kommentar;
-		_system = system;
+		super(titel, kommentar, system, "PCVideospiel");
 	}
 
 	@Override
@@ -59,9 +54,4 @@ class PCVideospiel extends AbstractVideospiel
 
 	}
 
-	@Override
-	public String getMedienBezeichnung()
-	{
-		return "PCVideospiel";
-	}
 }

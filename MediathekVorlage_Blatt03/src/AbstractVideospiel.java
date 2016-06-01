@@ -1,6 +1,7 @@
 
 abstract class AbstractVideospiel extends AbstractMedium
 {
+
 	/**
 	 * Der fixe Basispreis jeder Mietgebuehr
 	 */
@@ -9,11 +10,33 @@ abstract class AbstractVideospiel extends AbstractMedium
 	/**
 	 * Das System, auf dem das Spiel lauffähig ist
 	 */
-	protected String _system;
+	private String _system;
 
-	@Override
-	public abstract String getMedienBezeichnung();
-
+	/**
+	 * Initialisiert ein neues Videospiel.
+	 * 
+     * @param titel Der Titel des Mediums
+     * @param kommentar Ein Kommentar zu dem Medium
+     * @param mediumbezeichnung Die Bezeichnung des Mediums
+	 * @param system Die Bezeichnung des System
+	 * 
+     * @require titel != null
+     * @require kommentar != null
+     * @require medienbezeichnung != null
+	 * @require system != null
+	 * 
+     * @ensure getTitel() == titel
+     * @ensure getKommentar() == kommentar
+     * @ensure getMedienBezeichnung() == medienbezeichnung
+	 * @ensure getSystem() == system
+	 */
+	public AbstractVideospiel(String titel, String kommentar, String system , String medienbezeichnung)		
+	{
+		super(titel, kommentar, medienbezeichnung);
+		assert system != null : "Vorbedingung verletzt: system != null";
+		_system = system;
+	}
+	
 	/**
 	 * Gibt das System zurück, auf dem das Spiel lauffähig ist.
 	 * 

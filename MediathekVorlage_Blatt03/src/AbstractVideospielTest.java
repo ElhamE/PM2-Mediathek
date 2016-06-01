@@ -16,7 +16,7 @@ public abstract class AbstractVideospielTest
         assertEquals(TITEL, _videospiel.getTitel());
         assertEquals(KOMMENTAR, _videospiel.getKommentar());
         assertEquals(SYSTEM, _videospiel.getSystem());
-    }
+    }   
     
     @Test
     public abstract void testGetMedienBezeichnung();
