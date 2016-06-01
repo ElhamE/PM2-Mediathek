@@ -9,14 +9,6 @@ public abstract class AbstractMediumTest
     protected static final String KOMMENTAR = "Kommentar";
     protected static final String TITEL = "Titel";
     protected static final int LAENGE = 100;
-//    protected AbstractMedium _medium1;
-//    protected AbstractMedium _medium2;
-//    
-//    public AbstractMediumTest()
-//    {
-//    	_medium1 = getMedium();
-//    	_medium2 = getMedium();
-//    }
     
     @Test
     public abstract void testGetMedienBezeichnung();
