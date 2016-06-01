@@ -7,18 +7,14 @@ import org.junit.Test;
 public class KonsolenVideospielTest extends AbstractVideospielTest
 {
 
-    public KonsolenVideospielTest()
-    {
-        _videospiel = getMedium();
-    }
-
     @Test
     public void testGetMedienBezeichnung()
     {
     	assertEquals("KonsolenVideospiel", _videospiel.getMedienBezeichnung());
     }
     
-    private KonsolenVideospiel getMedium()
+    @Override
+    protected KonsolenVideospiel getMedium()
     {
         return new KonsolenVideospiel(TITEL, KOMMENTAR, SYSTEM);
     }

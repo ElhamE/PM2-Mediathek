@@ -5,16 +5,11 @@ public class DVDTest extends AbstractMediumTest
 {
 	private static final String REGISSEUR = "DVD Regisseur";
 
-	public DVDTest()
-	{
-		_medium1 = getMedium();
-		_medium2 = getMedium();
-	}
-
     @Test
     public void testGetMedienBezeichnung()
     {
-        assertEquals("DVD", _medium1.getMedienBezeichnung());
+		DVD dvd = getMedium();
+        assertEquals("DVD", dvd.getMedienBezeichnung());
     }
     
 	
@@ -22,23 +17,27 @@ public class DVDTest extends AbstractMediumTest
 	public void testKonstruktor()
 	{
 		super.testKonstruktor();
-		assertEquals(LAENGE, ((DVD) _medium1).getLaufzeit());
-		assertEquals(REGISSEUR, ((DVD) _medium1).getRegisseur());
+		DVD dvd = getMedium();
+		assertEquals(LAENGE, dvd.getLaufzeit());
+		assertEquals(REGISSEUR, dvd.getRegisseur());
 	}
 
 	@Test
 	public void testSetter()
 	{
 		super.testSetter();
-		((DVD) _medium1).setLaufzeit(90);
-		assertEquals(90, ((DVD) _medium1).getLaufzeit());
-		((DVD) _medium1).setRegisseur("Regisseur2");
-		assertEquals("Regisseur2", ((DVD) _medium1).getRegisseur());
+		DVD dvd = getMedium();
+		dvd.setLaufzeit(90);
+		assertEquals(90, dvd.getLaufzeit());
+		dvd.setRegisseur("Regisseur2");
+		assertEquals("Regisseur2", dvd.getRegisseur());
 	}
 
-	private DVD getMedium()
+	@Override
+	protected DVD getMedium()
 	{
 		return new DVD(TITEL, KOMMENTAR, REGISSEUR, LAENGE);
 	}
+
 
 }

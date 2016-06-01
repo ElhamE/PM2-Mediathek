@@ -6,13 +6,9 @@ import org.junit.Test;
  */
 public class PCVideospielTest extends AbstractVideospielTest
 {
-	
-    public PCVideospielTest()
-    {
-        _videospiel = getMedium();
-    }
 
-    private PCVideospiel getMedium()
+    @Override
+    protected PCVideospiel getMedium()
     {
         return new PCVideospiel(TITEL, KOMMENTAR, SYSTEM);
     }    

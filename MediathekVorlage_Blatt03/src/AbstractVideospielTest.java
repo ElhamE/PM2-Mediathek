@@ -10,6 +10,13 @@ public abstract class AbstractVideospielTest
     protected static final String SYSTEM = "System";
     protected AbstractVideospiel _videospiel;
     
+    public AbstractVideospielTest()
+    {
+    	_videospiel = getMedium();
+    }
+   
+    protected abstract AbstractVideospiel getMedium();
+    
     @Test
     public void testeVideospiel()
     {
