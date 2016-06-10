@@ -18,7 +18,7 @@ import de.hawhh.informatik.sml.kino.fachwerte.Geldbetrag;
  */
 public class BarzahlungsWerkzeugUI
 {
-    public JDialog _frame;
+    private JDialog _frame;
     private JLabel _zuZahlenderBetragLabel;
     private JTextField _eingabefeld;
     private JLabel _rueckgeldLabel;
@@ -28,7 +28,7 @@ public class BarzahlungsWerkzeugUI
     public BarzahlungsWerkzeugUI(Geldbetrag preis)
     {
         _frame = new JDialog();
-        _frame.setTitle("Barzahlung");
+        _frame.setTitle("Bitte Geld einzahlen!");
         
         Container contentPane = new JPanel();
         _frame.setContentPane(contentPane);
@@ -37,10 +37,10 @@ public class BarzahlungsWerkzeugUI
         _zuZahlenderBetragLabel = new JLabel("Zu zahlender Betrag: " + preis.getFormatiertenString() + "€");
         contentPane.add(_zuZahlenderBetragLabel);
         
-        _eingabefeld = new JTextField("Betrag");
+        _eingabefeld = new JTextField();
         contentPane.add(_eingabefeld);
         
-        _rueckgeldLabel = new JLabel("Rückgeld: -" + preis.getFormatiertenString() + "€");
+        _rueckgeldLabel = new JLabel("Rückgeld: 0€");
         contentPane.add(getRueckgeldLabel());
         
         Container panel = new JPanel();
@@ -54,8 +54,9 @@ public class BarzahlungsWerkzeugUI
         _abbrechen = new JButton("Abbrechen");
         panel.add(_abbrechen);
         
-        _frame.setSize(400, 400);
+        _frame.pack();
         _frame.setResizable(false);
+        _frame.setLocationRelativeTo(null);
         _frame.setModal(true);
         
     }

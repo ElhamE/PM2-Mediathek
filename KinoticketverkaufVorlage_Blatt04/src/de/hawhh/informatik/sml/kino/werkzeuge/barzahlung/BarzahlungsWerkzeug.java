@@ -43,17 +43,14 @@ public class BarzahlungsWerkzeug
             	    {
             	        Geldbetrag rueckgeld = geld.subtrahiere(_preis);
             	        _ui.getOkButton().setEnabled(true);
-                        if (rueckgeld.getEuroCent(rueckgeld) >= 0)
-                        {
-                            _ui.getRueckgeldLabel().setText("Rückgeld: " + rueckgeld + "€");
-                            _preis = Geldbetrag.get("0,00");
-                            _ui.getzuZahlenderBetragLabel().setText("Zu zahlender Betrag: " + _preis + "€");
-                        }  
+                        _ui.getRueckgeldLabel().setText("Rückgeld: " + rueckgeld + "€");
+                        _preis = Geldbetrag.get("0,00");
+                        _ui.getzuZahlenderBetragLabel().setText("Zu zahlender Betrag: " + _preis + "€");
             	    }
             	    else
             	    {
             	        JOptionPane.showMessageDialog(null, "Bitte einen Geldbetrag angeben, der größer gleich dem Preis ist!",
-                                "Zu wenig bezahlt", JOptionPane.ERROR_MESSAGE);
+                                "Zu wenig bezahlt", JOptionPane.INFORMATION_MESSAGE);
             	    }    
             	}
             	else
@@ -69,12 +66,8 @@ public class BarzahlungsWerkzeug
             {
             	String betrag = _ui.getRueckgeldLabel().getText();
             	betrag = betrag.substring(10, betrag.length()-1);
-            	Geldbetrag rueckgeld = Geldbetrag.get(betrag);
-            	if (rueckgeld.getEuroCent(rueckgeld) >= 0)
-            	{
-            		_verkaufDurchfuehren = true;
-            		_ui.schliesseFenster();
-            	}
+            	_verkaufDurchfuehren = true;
+            	_ui.schliesseFenster();
             }
         });
 		_ui.getAbbrechenButton().addActionListener(new ActionListener()
