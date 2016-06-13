@@ -36,6 +36,11 @@ public class BarzahlungsWerkzeug
             {
             	String regex = "[0-9]+,[0-9]{2}?";
             	String betrag = _ui.getEingabefeld().getText();
+                if (_preis.equals(Geldbetrag.get(0)))
+                {
+                    JOptionPane.showMessageDialog(null, "Es wurde schon für die Plätze gezahlt!",
+                            "Warnung", JOptionPane.ERROR_MESSAGE);    
+                }
             	if (betrag.matches(regex))
             	{
             	    Geldbetrag geld = Geldbetrag.get(betrag);
