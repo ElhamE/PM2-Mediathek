@@ -1,7 +1,5 @@
 package de.hawhh.informatik.sml.kino.fachwerte;
 
-import de.hawhh.informatik.sml.kino.fachwerte.Geldbetrag;
-
 /**
  * Ein Geldbetrag in Euro, gespeichert als ganze Euro- und ganze Cent-Beträge.
  * 

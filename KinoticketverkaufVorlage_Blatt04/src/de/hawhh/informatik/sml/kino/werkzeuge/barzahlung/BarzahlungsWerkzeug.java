@@ -18,8 +18,14 @@ public class BarzahlungsWerkzeug
 	private Geldbetrag _preis;
 	private boolean _verkaufDurchfuehren;
 
+	/**
+	 * Initialisiert ein Barzahlungswerkzeug
+	 * @require preis != null
+	 * @param preis der Preis für die ausgewählten Plätze
+	 */
 	public BarzahlungsWerkzeug(Geldbetrag preis)
 	{
+		assert preis != null : "Vorbedingung verletzt: preis != null";
 		_ui = new BarzahlungsWerkzeugUI(preis);
 		_preis = preis;
 		_verkaufDurchfuehren = false;
@@ -39,7 +45,7 @@ public class BarzahlungsWerkzeug
                 if (_preis.equals(Geldbetrag.get(0)))
                 {
                     JOptionPane.showMessageDialog(null, "Es wurde schon für die Plätze gezahlt!",
-                            "Warnung", JOptionPane.ERROR_MESSAGE);    
+                            "Warnung", JOptionPane.ERROR_MESSAGE);
                 }
             	if (betrag.matches(regex))
             	{
@@ -69,8 +75,6 @@ public class BarzahlungsWerkzeug
         {
             public void actionPerformed(ActionEvent e)
             {
-            	String betrag = _ui.getRueckgeldLabel().getText();
-            	betrag = betrag.substring(10, betrag.length()-1);
             	_verkaufDurchfuehren = true;
             	_ui.schliesseFenster();
             }
@@ -89,8 +93,5 @@ public class BarzahlungsWerkzeug
 	{
 		return _verkaufDurchfuehren;
 	}
-	
-	//TODO Geldbetrag einsetzen
-
 
 }
