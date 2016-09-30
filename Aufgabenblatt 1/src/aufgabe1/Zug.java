@@ -8,7 +8,7 @@ package aufgabe1;
  */
 public class Zug
 {
-    private Lokomotive _lok;
+    private final Lokomotive _lok;
 
     /**
      * Initialisiert ein neues Zug-Exemplar.
