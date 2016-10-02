@@ -30,6 +30,7 @@ abstract class AbstractWagon implements Wagon
         return _bezeichnung;
     }
 
+    @Override
     public void anhaengen(Wagon anhaenger)
     {
         assert (anhaenger != null)
@@ -44,11 +45,13 @@ abstract class AbstractWagon implements Wagon
         }     
     }
     
+    @Override
     public Wagon getNachfolger()
     {
         return _nachfolger;
     }
     
+    @Override
     public String getBeschreibungen()
     {
         if (_nachfolger == null)

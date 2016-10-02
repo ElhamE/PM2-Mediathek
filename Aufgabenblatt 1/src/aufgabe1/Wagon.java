@@ -24,7 +24,7 @@ public interface Wagon
      * 
      * @require (anhaenger != null) && (anhaenger != this) 
      * 
-     * @ensure this.getNachfolger().equals(anhaenger)
+     * @ensure (getNachfolger().equals(anhaenger)) == true
      */
     void anhaengen(Wagon anhaenger);
     

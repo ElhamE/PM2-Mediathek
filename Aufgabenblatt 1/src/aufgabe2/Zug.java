@@ -28,8 +28,10 @@ public class Zug
 
     /**
      * Hängt einen Zugteil (bestehend aus mindestens einem Wagon) hinten dran
-     * 
+     *  
      * @param wagon Ein anderes Wagon-Exemplar
+     * 
+     * @require wagon != null
      */
     public void haengeAn(Wagon wagon)
     {
