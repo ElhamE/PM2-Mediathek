@@ -5,6 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
+import aufgabe3.array.ADStackArrayImpl;
 import aufgabe3.knoten.ADStackKnotenImpl;
 
 /**
@@ -19,7 +20,7 @@ public class ADStackTest
 
 	public ADStackTest()
 	{
-		_stack = new ADStackKnotenImpl();
+		_stack = new ADStackArrayImpl();
 	}
 
 	@Test

@@ -42,7 +42,7 @@ public class ADStackKnotenImpl extends AbstractADStack
 		String result = "";
 		do
 		{
-			result = result + (aktuellerKnoten.getInhalt().toString());
+			result = result + (aktuellerKnoten.getInhalt().toString()) + "\n";
 			aktuellerKnoten = aktuellerKnoten.getNachfolger();
 		}
 		while (aktuellerKnoten != null);
