@@ -23,10 +23,5 @@ class StartupAufgabe1_1
         System.out.println(zug.gibZugbeschreibung1());
         System.err.println(zug.gibZugbeschreibung1Iterativ());
         System.out.println(zug.gibZugbeschreibung2());
-      
-        //*Problem Züge können mehrere Vorgänger haben --> doppelte Verkettung ist besser*/
-
-
     }
-
 }

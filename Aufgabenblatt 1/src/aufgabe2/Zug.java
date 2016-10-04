@@ -11,7 +11,7 @@ import java.util.LinkedList;
  */
 public class Zug
 {
-    private LinkedList<Wagon> _zug;
+    private final LinkedList<Wagon> _zug;
 
     /**
      * Initialisiert ein neues Zug-Exemplar.
@@ -27,7 +27,7 @@ public class Zug
     }
 
     /**
-     * Hängt einen Zugteil (bestehend aus mindestens einem Wagon) hinten dran
+     * Hängt einen Wagon hinten dran
      *  
      * @param wagon Ein anderes Wagon-Exemplar
      * 

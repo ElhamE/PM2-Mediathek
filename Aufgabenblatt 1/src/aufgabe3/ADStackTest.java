@@ -94,10 +94,7 @@ public class ADStackTest
 	 */
 	public void testLIFO()
 	{
-		for (int zaehler = 0; zaehler <= 9; ++zaehler)
-		{
-			_stack.push("" + zaehler);
-		}
+		fuelleStackMitInhalt();
 		for (int zaehler = 9; zaehler > 0; --zaehler)
 		{
 			_stack.pop();
@@ -111,10 +108,15 @@ public class ADStackTest
 	 */
 	public void testGetStringRepresentation()
 	{
+		fuelleStackMitInhalt();
+		assertNotNull(_stack.getStringRepresentation());
+	}
+
+	private void fuelleStackMitInhalt()
+	{
 		for (int zaehler = 0; zaehler <= 9; ++zaehler)
 		{
 			_stack.push("" + zaehler);
 		}
-		assertNotNull(_stack.getStringRepresentation());
 	}
 }

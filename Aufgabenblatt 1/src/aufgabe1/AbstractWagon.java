@@ -10,7 +10,7 @@ abstract class AbstractWagon implements Wagon
 {
     private Wagon _nachfolger;
 
-    private String _bezeichnung;
+    private final String _bezeichnung;
 
     /**
      * Initialisiert einen neues Wagon-Exemplar.
