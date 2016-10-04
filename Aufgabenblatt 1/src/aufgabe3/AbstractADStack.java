@@ -51,7 +51,4 @@ public abstract class AbstractADStack implements ADStack
 		assert isEmpty() == false : "Vorbedingung verletzt: isEmpty() == false";
 		return getStringRepresentationImpl();
 	}
-	
-	
-
 }

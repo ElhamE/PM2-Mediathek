@@ -25,7 +25,7 @@ public class ADStackTest
 
 	@Test
 	/**
-	 * Testet, ob ein Stack-Exemplar tatsächlich erzeugt wurde.
+	 * Testet, ob ein leerer Stack tatsächlich erzeugt wurde.
 	 */
 	public void testKonstruktor()
 	{
@@ -67,9 +67,10 @@ public class ADStackTest
 	 */
 	public void testPushDuplikate()
 	{
+		String duplikat = "Duplikat";
 		for (int zaehler = 1; zaehler <= 10; ++zaehler)
 		{
-			_stack.push("Duplikat");
+			_stack.push(duplikat);
 			assertTrue(_stack.size() == zaehler);
 		}
 	}

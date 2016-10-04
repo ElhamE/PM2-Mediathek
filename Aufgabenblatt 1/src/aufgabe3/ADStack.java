@@ -32,7 +32,7 @@ public interface ADStack
 	 * 
 	 * @return die Kardinalität des Stacks
 	 * 
-	 * @ensure size() >= 0
+	 * @ensure result >= 0
 	 */
 	int size();
 	
